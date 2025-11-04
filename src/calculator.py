@@ -6,22 +6,21 @@ class Calculator:
     def sum(self):
         return self.__op1 + self.__op2
 
-    def substract(self):
+    def subtract(self):
         return self.__op1 - self.__op2
 
     def multiply(self):
         return self.__op1 * self.__op2
 
     def divide(self):
-        try:
-            result = self.__op1 / self.__op2
-            return result
-        except ZeroDivisionError:
-            print("Division Error: cannot divide by zero.")
-            return None
+        if self.__op2 == 0:
+            raise ZeroDivisionError("You can't divide by zero!")
+        return self.__op1 / self.__op2
 
 if __name__ == "__main__":
-    calculator = Calculator(op1=0, op2=2)
+    calculator = Calculator(op1=5.5, op2=4)
+    print(calculator.sum())
+    print(calculator.subtract())
+    print(calculator.multiply())
     print(calculator.divide())
-
 
